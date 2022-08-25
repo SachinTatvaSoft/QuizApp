@@ -32,7 +32,8 @@ const [question5,setQuestion5] = useState("")
 
 
   return (
-    <div>
+    <div className='quiz-app-container'>
+      <div className='quiz-app'>
       <Routes>
         <Route path='' element={<UserDetails userDetails={userDetails} setUserDetails={setUserDetails}/>}/>
         <Route path='question/*' element={<QuestionPage userDetails={userDetails} answeredQuestions={answeredQuestions}/>}>
@@ -44,6 +45,7 @@ const [question5,setQuestion5] = useState("")
         </Route>
         <Route path='results' element={<Result answerCount={answerCount} userDetails={userDetails} />}/>
       </Routes>
+      </div>
     </div>
   );
 }

@@ -43,7 +43,8 @@ function Question3(props:questionPropType){
     }
 
     return <div className="user-details-form-container">
-    <div>
+    <div className="question-container">
+    <h3>Question No. 3</h3>
     <h1>Following statement is true or false?</h1>
     <h2>Sun rise in west.</h2>
     

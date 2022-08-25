@@ -55,8 +55,8 @@ function Question4(props:questionPropType){
     }
 
     return <div className="user-details-form-container">
-    <div>
-        <h2>Multi select question</h2>
+    <div className="question-container">
+        <h3>Question No. 4</h3>
         <h1>Which are the states of india?</h1>
     
     <FormGroup>

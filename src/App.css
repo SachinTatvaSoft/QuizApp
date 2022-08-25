@@ -1,52 +1,35 @@
-.App {
-  text-align: center;
+.quiz-app-container{
+  height: 98vh;
+  background-image: url("https://raw.githubusercontent.com/piyush-eon/Reactjs-Quiz-App/master/public/ques1.png");
 }
 
-.App-logo {
-  height: 40vmin;
-  pointer-events: none;
+.quiz-app{
+  background: transparent;
+  height: 93vh;
+  border:10px solid rgba(128, 128, 128, 0.382);
+  border-radius: 5px;
+  margin: 8px;
 }
-
-@media (prefers-reduced-motion: no-preference) {
-  .App-logo {
-    animation: App-logo-spin infinite 20s linear;
-  }
-}
-
-.App-header {
-  background-color: #282c34;
-  min-height: 100vh;
-  display: flex;
-  flex-direction: column;
-  align-items: center;
-  justify-content: center;
-  font-size: calc(10px + 2vmin);
-  color: white;
-}
-
-.App-link {
-  color: #61dafb;
-}
-
-@keyframes App-logo-spin {
-  from {
-    transform: rotate(0deg);
-  }
-  to {
-    transform: rotate(360deg);
-  }
-}
-
 
 .form-container{
   display: flex;
   flex-direction: column;
   width: max-content;
-  height:10rem;
+  margin: 1rem;
+  padding: 3rem;
+  border-radius: 10px;
+  border: 10px solid rgba(150, 150, 150, 0.46);
 }
 
 .m-1{
   margin: 1rem !important ;
+}
+
+.welcome-message{
+  border: 3px solid rgba(128, 128, 128, 0.671) ;
+  padding: 6px 20px 6px 20px;
+  border-radius: 4px;
+  box-shadow: 4px 4px 3px 2px grey ;
 }
 
 .link-container{
@@ -56,13 +39,19 @@
   width: 50%;
 }
 
+.result-answer-container{
+  display: flex;
+  flex-direction: row;
+  justify-content: space-evenly;
+}
+
 .link-container a{
   text-decoration: none !important;
   color: white;
 }
 
 .link-container a span{
-  padding: 0.7rem;
+  padding: 0.165rem 0.525rem 0.165rem 0.525rem;
   border-radius: 50%;
   background-color: grey;
 }
@@ -89,4 +78,16 @@ width: 25rem !important;
   flex-direction: column;
   justify-content: center;
   align-items: center;
+}
+
+.selected-question{
+  background-color: blue !important;
+}
+
+.question-container{  
+  height: 22rem;
+  width: 40rem;
+  border: 5px solid rgba(128, 128, 128, 0.671) ;
+  border-radius: 8px;
+  padding: 2rem;
 }

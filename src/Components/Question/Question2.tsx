@@ -44,8 +44,8 @@ function Question2(props:questionPropType){
 
     return (
         <div className="user-details-form-container">
-            <div>
-
+            <div className="question-container">
+            <h3>Question No. 2</h3>
             <h1>Fill in the blank</h1>
             <h1>10 + 25 = <span><TextField value={question2} onChange={handleChange}/></span></h1>
             <Button variant="outlined" className="m-1" onClick={handlePreviousQuestion}>Previous</Button>

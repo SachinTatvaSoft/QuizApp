@@ -22,11 +22,10 @@ function Result(props:resultPropTypes){
     },[])
 
     const data = {
-        labels: ['Correct','Wrong'],
+        labels: ['Correct Answer Percentage','Wrong Answer Percentage'],
         datasets: [
           {
-            label: '# of Votes',
-            data: [answerCount?.correct,answerCount?.wrong],
+            data: [answerCount?.correct*100/5,answerCount?.wrong*100/5],
             backgroundColor: [
               'rgba(255, 99, 132, 0.2)',
               'rgba(54, 162, 235, 0.2)',
@@ -37,14 +36,21 @@ function Result(props:resultPropTypes){
             ],
             borderWidth: 1,
           },
-        ],
+        ], 
       };
 
 return <div className="user-details-form-container"> 
 <div>
+    <div className="result-answer-container welcome-message m-1">
     <h1>{userDetails?.name}'s Result</h1>
-    <h3>Correct Answers : {answerCount?.correct}</h3>
-    <h3>Wrong Answers : {answerCount?.wrong}</h3>
+    </div>
+    <div className="result-answer-container">
+    <h3 className="m-1">Correct Answers : {answerCount?.correct}</h3>
+    <h3 className="m-1">Wrong Answers : {answerCount?.wrong}</h3>
+    </div>
+    <div className="result-answer-container">
+    <h2>You got : {answerCount?.correct*100/5}%</h2>
+    </div>
 
     <div className="pie-chart-container">
      <Pie data={data}/>

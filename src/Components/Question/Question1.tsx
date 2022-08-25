@@ -39,7 +39,8 @@ function Question1(props:questionPropType){
 
     return (
     <div className="user-details-form-container">
-        <div>
+        <div className="question-container">
+            <h3>Question No. 1</h3>
             <h1>What is the capital of india?</h1>
             <RadioGroup
              aria-labelledby="demo-radio-buttons-group-label"
