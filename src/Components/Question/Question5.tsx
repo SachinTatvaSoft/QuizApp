@@ -12,7 +12,6 @@ type questionPropType = {
         correct: number;
         wrong: number;
     }>>
-
 }
 
 function Question5(props:questionPropType){
@@ -25,10 +24,14 @@ function Question5(props:questionPropType){
 
     const handleNextQuestion = () =>  {
         if(question5 === "elon musk"){
-            props?.setAnswerCount({...answerCount,correct:answerCount.correct + 1})
+            if(answerCount?.correct+answerCount?.wrong < 5){
+                props?.setAnswerCount({...answerCount,correct:answerCount.correct + 1})
+            }
             history('/results')
         } else{
-            props?.setAnswerCount({...answerCount,wrong:answerCount.wrong + 1})
+            if(answerCount?.correct+answerCount?.wrong < 5){
+                props?.setAnswerCount({...answerCount,wrong:answerCount.wrong + 1})
+            }
             history('/results')
         }
     }
@@ -38,9 +41,9 @@ function Question5(props:questionPropType){
         props?.setAnsweredQuestions([...answeredQuestions,5])
     }
     
-    return<div>
-    <h1>Who is the CEO of Tesla Motors?</h1>
-    
+    return <div className="user-details-form-container">
+    <div>
+        <h1>Who is the CEO of Tesla Motors?</h1>
         <RadioGroup
          aria-labelledby="demo-radio-buttons-group-label"
          defaultValue="male"
@@ -53,11 +56,10 @@ function Question5(props:questionPropType){
             <FormControlLabel value="larry page" control={<Radio />} label="Larry Page" />
             <FormControlLabel value="steve jobs" control={<Radio />} label="Steve Jobs" />
         </RadioGroup>
-
-        <Button variant="outlined" onClick={handlePreviousQuestion}>Previous</Button>
-        <Button variant="outlined" onClick={handleNextQuestion}>End Test</Button>
+        <Button variant="outlined" className="m-1" onClick={handlePreviousQuestion}>Previous</Button>
+        <Button variant="outlined" className="m-1" onClick={handleNextQuestion}>End Test</Button>
+    </div>
 </div>
-
 }
 
 export default Question5

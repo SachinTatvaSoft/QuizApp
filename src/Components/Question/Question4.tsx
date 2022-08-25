@@ -37,10 +37,14 @@ function Question4(props:questionPropType){
     const handleNextQuestion = () =>  {
         const {uttarPradesh,goa,gujarat} = question4
         if(uttarPradesh && goa && gujarat){
-            props?.setAnswerCount({...answerCount,correct:answerCount.correct + 1})
+            if(answerCount?.correct+answerCount?.wrong < 5){
+                props?.setAnswerCount({...answerCount,correct:answerCount.correct + 1})
+            }
             history('/question/5')
         } else {
-            props?.setAnswerCount({...answerCount,wrong:answerCount.wrong + 1})
+            if(answerCount?.correct+answerCount?.wrong < 5){
+                props?.setAnswerCount({...answerCount,wrong:answerCount.wrong + 1})
+            }
             history('/question/5')
         }
     }
@@ -50,7 +54,8 @@ function Question4(props:questionPropType){
         props?.setAnsweredQuestions([...answeredQuestions,4])
     }
 
-    return <div>
+    return <div className="user-details-form-container">
+    <div>
         <h2>Multi select question</h2>
         <h1>Which are the states of india?</h1>
     
@@ -61,10 +66,10 @@ function Question4(props:questionPropType){
      <FormControlLabel control={<Checkbox checked={question4?.goa} onChange={handleChange} name="goa"/>} label="Goa" />
     </FormGroup>
 
-        <Button variant="outlined" onClick={handlePreviousQuestion}>Previous</Button>
-        <Button variant="outlined" onClick={handleNextQuestion}>Next</Button>
+        <Button variant="outlined" className="m-1" onClick={handlePreviousQuestion}>Previous</Button>
+        <Button variant="outlined" className="m-1" onClick={handleNextQuestion}>Next</Button>
         
-
+    </div>
 </div>
 
 }

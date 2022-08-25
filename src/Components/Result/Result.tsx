@@ -30,7 +30,6 @@ function Result(props:resultPropTypes){
             backgroundColor: [
               'rgba(255, 99, 132, 0.2)',
               'rgba(54, 162, 235, 0.2)',
-
             ],
             borderColor: [
               'rgba(255, 99, 132, 1)',
@@ -41,14 +40,16 @@ function Result(props:resultPropTypes){
         ],
       };
 
-return <div>
+return <div className="user-details-form-container"> 
+<div>
     <h1>{userDetails?.name}'s Result</h1>
     <h3>Correct Answers : {answerCount?.correct}</h3>
     <h3>Wrong Answers : {answerCount?.wrong}</h3>
 
     <div className="pie-chart-container">
-    <Pie data={data}/>
+     <Pie data={data}/>
     </div>
+</div>
 </div>
 }
 

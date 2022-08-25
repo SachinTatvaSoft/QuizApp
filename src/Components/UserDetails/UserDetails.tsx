@@ -45,8 +45,8 @@ function UserDetails (props:userDetailsProps) {
       }
     }
     
-    return <div>
-        <h1> User Details </h1>
+    return <div className="user-details-form-container">
+        <h1> Quiz App </h1>
         <div className="form-container">
         <TextField
           error={errors?.name}
@@ -73,7 +73,6 @@ function UserDetails (props:userDetailsProps) {
             <FormLabel id="demo-radio-buttons-group-label">Gender</FormLabel>
             <RadioGroup
              aria-labelledby="demo-radio-buttons-group-label"
-             defaultValue="male"
              name="radio-buttons-group"
              row
              value={userDetails?.gender}

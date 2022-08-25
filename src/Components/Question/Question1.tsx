@@ -20,10 +20,14 @@ function Question1(props:questionPropType){
     const history = useNavigate()
     const handleNextQuestion = () =>  {
         if(question1 === "delhi"){
-            props?.setAnswerCount({...answerCount,correct:answerCount.correct + 1})
+            if(answerCount?.correct+answerCount?.wrong < 5){
+                props?.setAnswerCount({...answerCount,correct:answerCount.correct + 1})
+            }
             history('/question/2')
-        } else{
-            props?.setAnswerCount({...answerCount,wrong:answerCount.wrong + 1})
+        }else{
+            if(answerCount?.correct+answerCount?.wrong < 5){
+                props?.setAnswerCount({...answerCount,wrong:answerCount.wrong + 1})
+            }
             history('/question/2')
         }
     }
@@ -34,23 +38,23 @@ function Question1(props:questionPropType){
     }
 
     return (
-    <div>
-        <h1>What is the capital of india?</h1>
-        
+    <div className="user-details-form-container">
+        <div>
+            <h1>What is the capital of india?</h1>
             <RadioGroup
              aria-labelledby="demo-radio-buttons-group-label"
-             defaultValue="male"
              name="radio-buttons-group"
              value={question1}
              onChange={handleChange}
-            >
+             >
                 <FormControlLabel value="gujarat" control={<Radio />} label="Gujarat" />
                 <FormControlLabel value="delhi" control={<Radio />} label="Delhi" />
                 <FormControlLabel value="goa" control={<Radio />} label="Goa" />
                 <FormControlLabel value="haryana" control={<Radio />} label="Haryana" />
             </RadioGroup>
 
-            <Button variant="outlined" onClick={handleNextQuestion}>Next</Button>
+            <Button variant="outlined" className="m-1" onClick={handleNextQuestion}>Next</Button>
+        </div>
     </div>
 )
 

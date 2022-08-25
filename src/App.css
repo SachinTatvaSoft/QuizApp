@@ -83,3 +83,10 @@
 height: 25rem !important;
 width: 25rem !important;
 }
+
+.user-details-form-container{
+  display: flex;
+  flex-direction: column;
+  justify-content: center;
+  align-items: center;
+}

@@ -25,10 +25,14 @@ function Question3(props:questionPropType){
 
     const handleNextQuestion = () =>  {
         if(question3 === "false"){
-            props?.setAnswerCount({...answerCount,correct:answerCount.correct + 1})
+            if(answerCount?.correct+answerCount?.wrong < 5){
+                props?.setAnswerCount({...answerCount,correct:answerCount.correct + 1})
+            }
             history('/question/4')
         } else{
-            props?.setAnswerCount({...answerCount,wrong:answerCount.wrong + 1})
+            if(answerCount?.correct+answerCount?.wrong < 5){
+                props?.setAnswerCount({...answerCount,wrong:answerCount.wrong + 1})
+            }
             history('/question/4')
         }
     }
@@ -38,7 +42,8 @@ function Question3(props:questionPropType){
         props?.setAnsweredQuestions([...answeredQuestions,3])
     }
 
-    return <div>
+    return <div className="user-details-form-container">
+    <div>
     <h1>Following statement is true or false?</h1>
     <h2>Sun rise in west.</h2>
     
@@ -53,11 +58,11 @@ function Question3(props:questionPropType){
             <FormControlLabel value="false" control={<Radio />} label="False" />
         </RadioGroup>
 
-        <Button variant="outlined" onClick={handlePreviousQuestion}>Previous</Button>
-        <Button variant="outlined" onClick={handleNextQuestion}>Next</Button>
+        <Button variant="outlined" className="m-1" onClick={handlePreviousQuestion}>Previous</Button>
+        <Button variant="outlined" className="m-1" onClick={handleNextQuestion}>Next</Button>
 
 </div>
-
+</div>
 }
 
 export default Question3

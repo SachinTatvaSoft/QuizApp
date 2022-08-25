@@ -25,10 +25,14 @@ function Question2(props:questionPropType){
 
     const handleNextQuestion = () =>  {
         if(question2 === "35"){
-            props?.setAnswerCount({...answerCount,correct:answerCount.correct + 1})
+            if(answerCount?.correct+answerCount?.wrong < 5){
+                props?.setAnswerCount({...answerCount,correct:answerCount.correct + 1})
+            }
             history('/question/3')
         } else{
-            props?.setAnswerCount({...answerCount,wrong:answerCount.wrong + 1})
+            if(answerCount?.correct+answerCount?.wrong < 5){    
+                props?.setAnswerCount({...answerCount,wrong:answerCount.wrong + 1})
+            }
             history('/question/3')
         }
     }
@@ -39,13 +43,15 @@ function Question2(props:questionPropType){
     }
 
     return (
-        <div>
-            <h1>Fill in the blank</h1>
-        <h1>10 + 25 = <span><TextField value={question2} onChange={handleChange}/></span></h1>
+        <div className="user-details-form-container">
+            <div>
 
-            <Button variant="outlined" onClick={handlePreviousQuestion}>Previous</Button>
-            <Button variant="outlined" onClick={handleNextQuestion}>Next</Button>
-    
+            <h1>Fill in the blank</h1>
+            <h1>10 + 25 = <span><TextField value={question2} onChange={handleChange}/></span></h1>
+            <Button variant="outlined" className="m-1" onClick={handlePreviousQuestion}>Previous</Button>
+            <Button variant="outlined" className="m-1" onClick={handleNextQuestion}>Next</Button>
+            </div>
+
     </div>
     )
 
