@@ -41,7 +41,7 @@ function Result(props:resultPropTypes){
 
 return <div className="user-details-form-container"> 
 <div>
-    <div className="result-answer-container welcome-message m-1">
+    <div className="result-answer-container welcome-message m-t-5-px">
     <h1>{userDetails?.name}'s Result</h1>
     </div>
     <div className="result-answer-container">

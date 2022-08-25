@@ -12,7 +12,7 @@ function QuestionNav(props:questionNav){
     const {pathname} = useLocation()   
     
     let questions = [1,2,3,4,5]
-    return <div className="link-main-container m-1">
+    return <div className="link-main-container">
         <div className="link-container">
         {
             questions?.map((link)=>{

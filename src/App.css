@@ -16,7 +16,7 @@
   flex-direction: column;
   width: max-content;
   margin: 1rem;
-  padding: 3rem;
+  padding: 1rem;
   border-radius: 10px;
   border: 10px solid rgba(150, 150, 150, 0.46);
 }
@@ -62,6 +62,7 @@
   flex-direction: column;
   justify-content: center;
   align-items: center;
+  margin-top: 0.5rem;
 }
 
 .answered-question{
@@ -69,12 +70,14 @@
 }
 
 .pie-chart-container{
-height: 25rem !important;
-width: 25rem !important;
+height: 320px !important;
+width: 320px !important;
+margin: 0px !important;
+
 }
 
 .user-details-form-container{
-  display: flex;
+  display: flex !important;
   flex-direction: column;
   justify-content: center;
   align-items: center;
@@ -89,5 +92,9 @@ width: 25rem !important;
   width: 40rem;
   border: 5px solid rgba(128, 128, 128, 0.671) ;
   border-radius: 8px;
-  padding: 2rem;
+  padding: 0.5rem;
+}
+
+.m-t-5-px{
+  margin-top: 5px;
 }
