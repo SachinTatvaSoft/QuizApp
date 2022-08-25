@@ -24,16 +24,16 @@ function Question5(props:questionPropType){
 
     const handleNextQuestion = () =>  {
         if(question5 === "elon musk"){
-            if(answerCount?.correct+answerCount?.wrong < 5){
-                props?.setAnswerCount({...answerCount,correct:answerCount.correct + 1})
-            }
-            history('/results')
-        } else{
-            if(answerCount?.correct+answerCount?.wrong < 5){
-                props?.setAnswerCount({...answerCount,wrong:answerCount.wrong + 1})
-            }
-            history('/results')
+            if(answerCount?.correct == 5 && answerCount?.wrong == 0){
+                history('/results')
+                return ;
+                }
+            props?.setAnswerCount({...answerCount,correct:answerCount.correct + 1,wrong:answerCount?.wrong - 1})
+
+        } else if(answerCount?.wrong<5){
+            props?.setAnswerCount({...answerCount,wrong:answerCount.wrong + 1,correct:answerCount?.correct -1 })            
         }
+        history('/results')
     }
 
     const handleChange = (e:React.ChangeEvent<HTMLInputElement>) =>{

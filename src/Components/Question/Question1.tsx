@@ -20,16 +20,15 @@ function Question1(props:questionPropType){
     const history = useNavigate()
     const handleNextQuestion = () =>  {
         if(question1 === "delhi"){
-            if(answerCount?.correct+answerCount?.wrong < 5){
-                props?.setAnswerCount({...answerCount,correct:answerCount.correct + 1})
-            }
+            if(answerCount?.correct == 5 && answerCount?.wrong == 0){
             history('/question/2')
-        }else{
-            if(answerCount?.correct+answerCount?.wrong < 5){
-                props?.setAnswerCount({...answerCount,wrong:answerCount.wrong + 1})
+            return ;
             }
-            history('/question/2')
+            props?.setAnswerCount({...answerCount,correct:answerCount.correct + 1,wrong:answerCount?.wrong - 1})
+        }else if(answerCount?.wrong < 5){
+            props?.setAnswerCount({...answerCount,wrong:answerCount.wrong + 1,correct:answerCount?.correct -1 })
         }
+        history('/question/2')
     }
 
     const handleChange = (e:React.ChangeEvent<HTMLInputElement>) =>{

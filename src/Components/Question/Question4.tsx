@@ -37,16 +37,16 @@ function Question4(props:questionPropType){
     const handleNextQuestion = () =>  {
         const {uttarPradesh,goa,gujarat} = question4
         if(uttarPradesh && goa && gujarat){
-            if(answerCount?.correct+answerCount?.wrong < 5){
-                props?.setAnswerCount({...answerCount,correct:answerCount.correct + 1})
-            }
-            history('/question/5')
-        } else {
-            if(answerCount?.correct+answerCount?.wrong < 5){
-                props?.setAnswerCount({...answerCount,wrong:answerCount.wrong + 1})
-            }
-            history('/question/5')
+            if(answerCount?.correct == 5 && answerCount?.wrong == 0){
+                history('/question/5')
+                return ;
+                }
+            props?.setAnswerCount({...answerCount,correct:answerCount.correct + 1,wrong:answerCount?.wrong - 1})
+
+        } else if(answerCount?.wrong<5) {
+            props?.setAnswerCount({...answerCount,wrong:answerCount.wrong + 1,correct:answerCount?.correct -1 })
         }
+        history('/question/5')
     }
 
     const handleChange = (e:React.ChangeEvent<HTMLInputElement>)=>{

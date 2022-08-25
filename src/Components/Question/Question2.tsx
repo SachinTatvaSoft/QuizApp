@@ -25,16 +25,15 @@ function Question2(props:questionPropType){
 
     const handleNextQuestion = () =>  {
         if(question2 === "35"){
-            if(answerCount?.correct+answerCount?.wrong < 5){
-                props?.setAnswerCount({...answerCount,correct:answerCount.correct + 1})
-            }
-            history('/question/3')
-        } else{
-            if(answerCount?.correct+answerCount?.wrong < 5){    
-                props?.setAnswerCount({...answerCount,wrong:answerCount.wrong + 1})
-            }
-            history('/question/3')
+            if(answerCount?.correct == 5 && answerCount?.wrong == 0){
+                history('/question/3')
+                return ;
+                }
+            props?.setAnswerCount({...answerCount,correct:answerCount.correct + 1,wrong:answerCount?.wrong - 1})
+        } else if(answerCount?.wrong < 5){
+            props?.setAnswerCount({...answerCount,wrong:answerCount.wrong + 1,correct:answerCount?.correct -1 })
         }
+        history('/question/3')
     }
 
     const handleChange = (e:React.ChangeEvent<HTMLInputElement>) =>{

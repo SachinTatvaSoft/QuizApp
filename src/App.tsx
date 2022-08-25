@@ -19,7 +19,7 @@ function App() {
 })
 
 const [answerCount,setAnswerCount] = useState({
-  correct:0,wrong:0
+  correct:0,wrong:5
 })
 
 const[answeredQuestions,setAnsweredQuestions] = useState([0])

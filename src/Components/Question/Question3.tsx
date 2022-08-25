@@ -25,16 +25,16 @@ function Question3(props:questionPropType){
 
     const handleNextQuestion = () =>  {
         if(question3 === "false"){
-            if(answerCount?.correct+answerCount?.wrong < 5){
-                props?.setAnswerCount({...answerCount,correct:answerCount.correct + 1})
-            }
-            history('/question/4')
-        } else{
-            if(answerCount?.correct+answerCount?.wrong < 5){
-                props?.setAnswerCount({...answerCount,wrong:answerCount.wrong + 1})
-            }
-            history('/question/4')
+            if(answerCount?.correct == 5 && answerCount?.wrong == 0){
+                history('/question/4')
+                return ;
+                }
+            props?.setAnswerCount({...answerCount,correct:answerCount.correct + 1,wrong:answerCount?.wrong - 1})
+        } else if(answerCount?.wrong<5){
+            props?.setAnswerCount({...answerCount,wrong:answerCount.wrong + 1,correct:answerCount?.correct -1 })
+                   
         }
+        history('/question/4')
     }
 
     const handleChange = (e:React.ChangeEvent<HTMLInputElement>) =>{
